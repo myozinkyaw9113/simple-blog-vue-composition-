@@ -6,8 +6,8 @@
             "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
             "tags" : [
                 "webdev",
-                "coding",
-                "news"
+                "vue",
+                "css"
             ]
         },
         {
@@ -15,10 +15,40 @@
             "title" : "Second Blog Title",
             "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
             "tags" : [
-                "css",
-                "coding",
-                "news"
+                "js",
+                "php",
+                "tailwind"
             ]
-        }
+        },
+        {
+            "id" : 3,
+            "title" : "Third Blog Title",
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
+            "tags" : [
+                "html",
+                "coding",
+                "livewire"
+            ]
+        },
+        {
+            "id" : 4,
+            "title" : "Fourth Blog Title",
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
+            "tags" : [
+                "filament",
+                "laravel",
+                "bootstrap"
+            ]
+        },
+        {
+            "id" : 5,
+            "title" : "Fifth Blog Title",
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
+            "tags" : [
+                "jquery",
+                "sql",
+                "nginx"
+            ]
+        }        
     ]
 }
