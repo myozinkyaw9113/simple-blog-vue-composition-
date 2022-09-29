@@ -27,3 +27,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### For Blog Data
+
+```sh
+npx json-server --watch data/db.json
+```
