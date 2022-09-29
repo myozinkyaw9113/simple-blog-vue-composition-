@@ -1,0 +1,24 @@
+{
+    "posts" : [
+        {
+            "id" : 1,
+            "title" : "First Blog Title",
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
+            "tags" : [
+                "webdev",
+                "coding",
+                "news"
+            ]
+        },
+        {
+            "id" : 2,
+            "title" : "Second Blog Title",
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odit provident doloremque expedita enim ullam, officia eos. Blanditiis natus quis iusto amet totam. Quae omnis soluta tempore aperiam earum eum.",
+            "tags" : [
+                "css",
+                "coding",
+                "news"
+            ]
+        }
+    ]
+}
