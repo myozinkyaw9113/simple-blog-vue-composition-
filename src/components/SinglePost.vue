@@ -1,12 +1,12 @@
 <template>
 
-    <div class="post-style">
+    <div class="post-style mb-5">
 
         <router-link :to="{ name: 'Detail', params: { id: post.id } }">
             <h1>{{ post.title }}</h1>
         </router-link>
 
-        <p class="desc">{{ snippet }}</p>
+        <p class="desc text-lg">{{ snippet }}</p>
 
         <span class="tag" v-for="tag in post.tags" :key="tag">#{{ tag }}</span>
 

@@ -6,7 +6,7 @@
 
         <h1>{{ post.title }}</h1>
 
-        <p class="desc">{{ post.description }}</p>
+        <p class="desc text-lg">{{ post.description }}</p>
 
         <span class="tag" v-for="tag in post.tags" :key="tag">#{{ tag }}</span>
 

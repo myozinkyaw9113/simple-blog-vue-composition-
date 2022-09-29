@@ -38,10 +38,18 @@ a,
 }
 
 h1 {
+  font-size: 2rem;
   color: hsla(160, 100%, 37%, 1);
 }
 
 .tag {
   font-weight: bold;
   margin-right: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  margin-bottom: 1rem;
 }

@@ -1,5 +1,11 @@
 <template>
 
+  <div class="nav">
+    <div>
+      <router-link :to="{ name: 'ShopList' }">Shop List</router-link>
+    </div>
+  </div>
+
   <div>
 
     <div v-if="error">{{ error }}</div>
