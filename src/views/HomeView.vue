@@ -1,9 +1,12 @@
 <template>
 
   <div class="nav">
-    <div>
+    <div class="mr-3">
       <router-link :to="{ name: 'ShopList' }">Shop List</router-link>
     </div>
+   <div>
+      <router-link :to="{ name: 'CountryList' }">Country List</router-link>
+   </div>
   </div>
 
   <div>
