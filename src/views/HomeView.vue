@@ -1,17 +1,20 @@
 <template>
 
   <div class="nav">
-    <div class="mr-3">
+    <div>
       <router-link :to="{ name: 'ShopList' }">Shop List</router-link>
     </div>
    <div>
       <router-link :to="{ name: 'CountryList' }">Country List</router-link>
    </div>
+   <div>
+      <router-link :to="{ name: 'PiniaFundamentals' }">Pinia Fundamentals</router-link>
+   </div>
   </div>
 
   <div>
 
-    <div v-if="error">{{ error }}</div>
+    <!-- <div v-if="error">{{ error }}</div> -->
 
     <div v-if="posts.length">
       <PostList :posts="posts" />

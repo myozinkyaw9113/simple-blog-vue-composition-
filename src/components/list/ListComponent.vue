@@ -6,11 +6,11 @@
           <li v-for="item in list" :key="item.id" class="py-4">
             <div class="flex items-center space-x-4">
               <div class="flex-shrink-0">
-                <img class="h-8 w-8 rounded-full" :src="item.imgurl" :alt="item.name" />
+                <img class="h-8 w-8 rounded-full" :src="item.image" :alt="item.title" />
               </div>
               <div class="min-w-0 flex-1">
-                <p class="truncate text-sm font-medium text-gray-900">{{ item.name }}</p>
-                <!-- <p class="truncate text-sm text-gray-500">{{ '@' + item.handle }}</p> -->
+                <p class="truncate text-sm font-medium text-gray-900">{{ item.title }}</p>
+                <p class="truncate text-sm text-gray-500">{{ '@' + item.category }}</p>
               </div>
               <div>
                 <a href="#" class="ml-14 inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
