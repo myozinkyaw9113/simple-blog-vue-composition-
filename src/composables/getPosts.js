@@ -1,4 +1,5 @@
 import { ref } from '@vue/reactivity'
+import blog from '../data/db.json'
 
 const getPosts = () => {
     const posts = ref([])
@@ -7,11 +8,7 @@ const getPosts = () => {
     
     const load = async () => {
       try {
-        let data = await fetch('http://localhost:3000/posts')
-        if (!data.ok) {
-          throw Error('No data found')
-        }
-        posts.value  = await data.json()
+        posts.value  = blog.posts
       }
       catch(err) {
         error.value = err.message

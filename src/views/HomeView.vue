@@ -5,10 +5,10 @@
       <router-link :to="{ name: 'ShopList' }">Shop List</router-link>
     </div>
    <div>
-      <router-link :to="{ name: 'CountryList' }">Country List</router-link>
+      <router-link :to="{ name: 'CountryList' }">Products List</router-link>
    </div>
    <div>
-      <router-link :to="{ name: 'PiniaFundamentals' }">Pinia Fundamentals</router-link>
+      <router-link :to="{ name: 'Reactive' }">Reactive</router-link>
    </div>
   </div>
 
