@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Register from '../views/page/auth/Register.vue'
 import Login from '../views/page/auth/Login.vue'
 import Home from '../views/page/Home.vue'
+import ConfirmationUser from '../views/page/auth/ConfirmationUser.vue'
 import NotFound from '../views/page/NotFound.vue'
 import { authStore } from '../stores/auth'
 import { storeToRefs } from 'pinia'
@@ -26,32 +27,39 @@ const router = createRouter({
       component: Login,
     },
     {
+      path: '/confirmation-user',
+      name: 'confirmationUser',
+      component: ConfirmationUser,
+    },
+    {
       path: '/:NotFound(.*)*',
       component: NotFound,
     }
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token');
-  authStore().token = token
-  console.log(token)
-  console.log('hi wa lone lay')
-  Api.puller('/test')
-  .then(res => {
-    // test
+  router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
+    if(!token && (to.name=='login' || to.name=='register' || to.name=="confirmationUser")){
+      next()  
+    }else{
+      authStore().token = token
+      Api.puller('/test')
+      .then(res => {
+        // test
+      })
+      .catch(err => {
+        router.push({name:'login'})
+        authStore().removeToken()
+      })
+      if (!token && (to.name !== 'login' || to.name !== 'register')) {
+        next({name : 'login'})
+      } else if (token && (to.name == 'login' || to.name == 'register')) {
+        next({name : 'home'})
+      } else {
+        next()
+      }
+    }
   })
-  .catch(err => {
-    authStore().removeToken()
-    router.push({name:'login'})
-  })
-  if (!token && to.name !== 'login') {
-    next({name : 'login'})
-  } else if (token && to.name == 'login') {
-    next({name : 'home'})
-  } else {
-    next()
-  }
-})
 
 export default router

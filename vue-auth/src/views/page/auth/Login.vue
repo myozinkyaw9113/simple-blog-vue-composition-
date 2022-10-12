@@ -55,7 +55,7 @@ export default {
     setup() {
       const router = useRouter();
         const form = reactive({
-          email: 'timmothy08@example.org',
+          email: 'test@test.com',
           password: 'secret',
         })
         
@@ -70,13 +70,14 @@ export default {
         }
         const { token } = storeToRefs(authStore());
 
-        onMounted(
-          () => {
-            if(token.value){
-              router.push({ name: "home" })
-            }
-          }
-        )
+        // onMounted(
+        //   () => {
+        //     if(token.value){
+        //       router.push({ name: "home" })
+        //     }
+        //   }
+        // )
+        
         return {
             form,
             token,

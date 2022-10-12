@@ -21,7 +21,7 @@ export const authStore = defineStore('authStore',()=>{
   }
 
   const removeToken = () => {
-    // token.value = "",
+    token.value = "",
     localStorage.removeItem('token');
   }
 

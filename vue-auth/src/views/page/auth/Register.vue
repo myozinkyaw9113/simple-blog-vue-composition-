@@ -57,7 +57,7 @@
                     </div>
                     
                     <div>
-                        <button @click.prevent="login" type="submit" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign in</button>
+                        <button @click.prevent="register" type="submit" class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign in</button>
                     </div>
                 </form>
             </div>
@@ -90,13 +90,18 @@
             const router=useRouter();
             const form = reactive({})
 
-            function choosePlan(value){
+            function choosePlan(value)
+            {
                 form.plan_id = value
             }
 
-            function login(){
-                Api.poster('/register',form).then((res)=>{
-                    router.push({ name : 'home' })
+            function register()
+            {
+                Api.poster('/register',form)
+                .then((res)=>{
+                    localStorage.setItem('phone',form.login_phone)
+                    localStorage.setItem('mail',form.email)
+                    router.push({name: "confirmationUser"})
                 })
                 .catch(
                     (err) => console.log(err)
@@ -104,19 +109,19 @@
             }
             const { token } = storeToRefs(authStore());
 
-            onMounted(
-                () => {
-                    if(token.value){
-                        router.push({ name: "home" })
-                    }
-                }
-            )
+            // onMounted(
+            //     () => {
+            //         if(token.value){
+            //             router.push({ name: "home" })
+            //         }
+            //     }
+            // )
             
             return {
                 form,
                 items,
                 choosePlan,
-                login
+                register
             }
             
         }

@@ -6,7 +6,7 @@
         <div class="flex">
           <div class="flex flex-shrink-0 items-center">
             <router-link :to="{ name : 'home' }">  
-              <img class="block h-8 w-auto" src="../../public/logo.png" alt="ATO-HR" />  
+              <img class="block h-8 w-auto" src="/logo.png" alt="ATO-HR" />  
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -18,10 +18,13 @@
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
-          <router-link :to="{ name: 'register' }">
-            <button class="bg-blue-300 p-2 text-white rounded-md shadow-sm text-sm">Register New Account</button>
-          </router-link>
-          <!-- Profile dropdown -->
+          <div v-if="!store.token">
+            <router-link :to="{ name: 'register' }">
+              <button class="bg-blue-300 p-2 text-white rounded-md shadow-sm text-sm">Register New Account</button>
+            </router-link>
+          </div>
+          <div v-else>
+            <!-- Profile dropdown -->
           <Menu as="div" class="relative ml-3">
             <div>
               <MenuButton class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
@@ -43,14 +46,7 @@
               </MenuItems>
             </transition>
           </Menu>
-        </div>
-        <div class="-mr-2 flex items-center sm:hidden">
-          <!-- Mobile menu button -->
-          <DisclosureButton class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-            <span class="sr-only">Open main menu</span>
-            <Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-            <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
-          </DisclosureButton>
+          </div>
         </div>
       </div>
     </div>
@@ -96,8 +92,8 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { useRouter } from 'vue-router';
 import { authStore } from '@/stores/auth.js';
-import Api from "@/util/Api.js"
 
+import Api from "@/util/Api.js"
 
 export default {
   components: {
@@ -105,12 +101,12 @@ export default {
   },
 
   setup(){
+    const store = authStore();
     const router = useRouter();
     function logout(){
       Api.poster('/logout').then((res)=>{
             authStore().removeToken()
-            console.log(router.push({ name : 'register' }));
-            // router.push({ name : 'register' }) 
+            router.push({ name : 'login' }) 
           })
           .catch(
             (err) => console.log(err)
@@ -118,7 +114,8 @@ export default {
     }
     
     return {
-      logout
+      logout,
+      store
     }
   }
 }
