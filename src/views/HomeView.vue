@@ -1,15 +1,17 @@
 <template>
 
   <div class="nav">
-    <div>
-      <router-link :to="{ name: 'ShopList' }">Shop List</router-link>
-    </div>
-   <div>
-      <router-link :to="{ name: 'CountryList' }">Products List</router-link>
-   </div>
-   <div>
-      <router-link :to="{ name: 'Reactive' }">Reactive</router-link>
-   </div>
+
+    <router-link class="mr-3" :to="{ name: 'ShopList' }">Shop List</router-link>
+    
+    <router-link class="mr-3" :to="{ name: 'CountryList' }">Products List</router-link>
+
+    <router-link class="mr-3" :to="{ name: 'Reactive' }">Reactive</router-link>
+
+    <router-link class="mr-3" :to="{ name: 'VueOption1' }">Vue Option1</router-link>
+
+    <router-link class="mr-3" :to="{ name: 'VueComposition1' }">Vue Composition1</router-link>
+
   </div>
 
   <div>
